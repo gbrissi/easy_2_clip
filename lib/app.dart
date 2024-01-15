@@ -1,4 +1,4 @@
-import 'package:easy_2_clip/screens/home.dart';
+import 'package:easy_2_clip/screens/clip_screen.dart';
 import 'package:flutter/material.dart';
 
 class App extends StatelessWidget {
@@ -10,10 +10,12 @@ class App extends StatelessWidget {
     return MaterialApp(
       title: 'Easy2Clip',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.teal),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(0, 72, 61, 139),
+        ),
         useMaterial3: true,
       ),
-      home: const Home(),
+      home: const ClipScreen(),
     );
   }
 }
