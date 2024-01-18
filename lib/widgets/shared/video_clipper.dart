@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:easy_2_clip/widgets/shared/range_selector/range_selector.dart';
+import 'package:easy_2_clip/widgets/shared/row_separated.dart';
+import 'package:easy_2_clip/widgets/shared/video_controllers/video_controllers.dart';
 import 'package:flutter/material.dart';
 import 'package:media_kit/media_kit.dart';
 import 'package:media_kit_video/media_kit_video.dart';
@@ -55,16 +57,49 @@ class _VideoClipperState extends State<VideoClipper> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        SizedBox(
-          width: 500,
-          height: 500 * 9.0 / 16.0,
-          child: Video(
-            controller: _videoController,
-          ),
+        RowSeparated(
+          spacing: 8,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SizedBox(
+              width: 480,
+              height: 480 * 9.0 / 16.0,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: Video(
+                  controller: _videoController,
+                  controls: NoVideoControls,
+                ),
+              ),
+            ),
+            SizedBox(
+              // width: 160,
+              height: 480 * 9.0 / 16.0,
+              child: Card(
+                child: Padding(
+                  padding: const EdgeInsets.all(4),
+                  child: Column(
+                    children: [
+                      const SizedBox.shrink(),
+                      const Spacer(),
+                      TextButton.icon(
+                        onPressed: () => {},
+                        icon: const Icon(Icons.delete),
+                        label: const Text("Remove video"),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            )
+          ],
         ),
         RangeSelector(
           totalDuration: _videoDuration,
           onChanged: _updateRange,
+        ),
+        VideoControllers(
+          controller: _videoController,
         ),
       ],
     );

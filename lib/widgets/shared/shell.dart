@@ -1,3 +1,5 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:easy_2_clip/widgets/shared/title_bar.dart';
 import 'package:flutter/material.dart';
 
 class Shell extends StatelessWidget {
@@ -9,8 +11,15 @@ class Shell extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: child,
+    return Column(
+      children: [
+        const TitleBar(),
+        Expanded(
+          child: Scaffold(
+            body: child,
+          ),
+        ),
+      ],
     );
   }
 }
