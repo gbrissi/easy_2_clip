@@ -37,6 +37,8 @@ dependencies:
   desktop_drop: ^0.4.4
   dotted_border: ^2.1.0
   cross_file: ^0.3.3+7
+  ffmpeg_helper: ^1.0.1
+  path_provider: ^2.1.2
   file_picker: ^6.1.1
   flutter:
     sdk: flutter

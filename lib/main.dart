@@ -1,9 +1,11 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:easy_2_clip/app.dart';
+import 'package:ffmpeg_helper/helpers/ffmpeg_helper_class.dart';
 import 'package:flutter/material.dart';
 import 'package:media_kit/media_kit.dart';
 
-void main() {
+Future<void> main() async {
+  await FFMpegHelper.instance.initialize(); // This is a singleton instance
   WidgetsFlutterBinding.ensureInitialized();
   // Necessary initialization for package:media_kit.
   MediaKit.ensureInitialized();

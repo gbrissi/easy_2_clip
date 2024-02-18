@@ -41,8 +41,8 @@ class _HandleState extends State<Handle> {
           onPanUpdate: (details) => widget.onChanged(details.globalPosition.dx),
           child: Container(
             width: rangeController.handleWidth,
-            height: 40,
-            color: Colors.blue,
+            height: 60,
+            color: Theme.of(context).colorScheme.primary,
           ),
         ),
       ),

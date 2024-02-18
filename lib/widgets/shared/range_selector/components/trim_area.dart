@@ -37,8 +37,8 @@ class _TrimAreaState extends State<TrimArea> {
       child: Container(
         key: _trimAreaKey,
         width: _trimAreaWidthState,
-        height: 40,
-        color: Theme.of(context).colorScheme.primary,
+        height: 60,
+        color: Theme.of(context).colorScheme.primary.withOpacity(0.4),
       ),
     );
   }

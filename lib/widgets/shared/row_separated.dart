@@ -7,15 +7,18 @@ class RowSeparated extends StatelessWidget {
     required this.children,
     this.crossAxisAlignment = CrossAxisAlignment.center,
     this.mainAxisAlignment = MainAxisAlignment.start,
+    this.mainAxisSize = MainAxisSize.max,
   });
   final List<Widget> children;
   final double spacing;
+  final MainAxisSize mainAxisSize;
   final MainAxisAlignment mainAxisAlignment;
   final CrossAxisAlignment crossAxisAlignment;
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      mainAxisSize: mainAxisSize,
       mainAxisAlignment: mainAxisAlignment,
       crossAxisAlignment: crossAxisAlignment,
       children: _getSeparatedChildren(

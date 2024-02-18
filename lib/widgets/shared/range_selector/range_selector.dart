@@ -58,20 +58,23 @@ class _RangeSelectorState extends State<RangeSelector> {
         ),
         child: SizedBox(
           width: _selectAreaWidth,
-          child: const Column(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              DurationLabel(),
-              SizedBox(
-                height: 40,
-                child: Stack(
-                  clipBehavior: Clip.none,
-                  children: [
-                    SelectArea(),
-                    TrimArea(),
-                    LeftHandle(),
-                    RightHandle(),
-                  ],
+              const DurationLabel(),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(4),
+                child: const SizedBox(
+                  height: 60,
+                  child: Stack(
+                    clipBehavior: Clip.none,
+                    children: [
+                      SelectArea(),
+                      TrimArea(),
+                      LeftHandle(),
+                      RightHandle(),
+                    ],
+                  ),
                 ),
               ),
             ],

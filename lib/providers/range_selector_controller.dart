@@ -11,10 +11,11 @@ class RangeSelectorController extends ChangeNotifier {
   Offset _offsetArea = Offset.zero;
 
   double get screenWidth => MediaQuery.of(context).size.width;
-  double get handleWidth => 5;
+  double get handleWidth => 2;
 
   final ValueNotifier<double> _leftHandlePos = ValueNotifier(0);
-  final ValueNotifier<double> _rightHandlePos = ValueNotifier(0);
+  // TODO:Temporarily value of "20" for testing purposes, should be set at the max position value.
+  final ValueNotifier<double> _rightHandlePos = ValueNotifier(20);
 
   set leftHandlePos(double position) => _leftHandlePos.value = position;
   set rightHandlePos(double position) => _rightHandlePos.value = position;
@@ -64,10 +65,14 @@ class RangeSelectorController extends ChangeNotifier {
     }
   }
 
-  setRightHandlePosition(double position) {
+  setRightHandlePosition(
+    double position,
+  ) {
     final double newPosition = position - _offsetArea.dx;
+
     if (leftHandlePos < newPosition &&
-        position <= _offsetArea.dx + selectAreaWidth) {
+        position <= _offsetArea.dx + selectAreaWidth - handleWidth) {
+      print("$selectAreaWidth, $selectAreaWidth, ${_offsetArea.dx}");
       rightHandlePos = newPosition;
       notifyListeners();
     }
